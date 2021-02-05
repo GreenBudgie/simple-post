@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Post</title>
+</head>
+<body>
+    <form method="post" th:action="@{/posts/add}" th:object="${post}">
+        <label>
+            <input type="text" name="title" placeholder="Заголовок" th:field="*{title}">
+        </label>
+        <label>
+            <textarea name="text" placeholder="Напишите что-нибудь..." th:field="*{text}"></textarea>
+        </label>
+        <button type="submit">Отправить</button>
+    </form>
+    <div th:each="post : ${posts}">
+        <h1 th:text="*{post.title}"></h1>
+        <p th:text="*{post.text}"></p>
+    </div>
+</body>
+</html>
