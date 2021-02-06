@@ -1,3 +1,11 @@
+//Color palette
+$background: #F5F5F5;
+$post-blue: #7BB8DA;
+$blue-overlay-text: #404040;
+$placeholder: rgba(74, 74, 74, 0.4);
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +13,60 @@
 }
 
 body {
-  background-color: #F5F5F5;
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 22px;
+  background-color: $background;
+  padding: 40px;
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+  max-width: 600px;
+  min-width: 400px;
+  height: 340px;
+
+  input, textarea, button {
+    padding: 15px 20px;
+    background-color: white;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    color: black;
+
+    &::placeholder {
+      color: $placeholder;
+    }
+  }
+
+  input {
+    width: 60%;
+    font-size: 24px;
+  }
+
+  textarea {
+    flex: 1;
+    font-size: 20px;
+    width: 100%;
+    margin: 20px 0;
+    resize: none;
+  }
+
+  button {
+    cursor: pointer;
+    text-align: center;
+    font-size: 24px;
+    width: 40%;
+    margin-left: auto;
+    background-color: $post-blue;
+    color: $blue-overlay-text;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($post-blue, 5);
+    }
+  }
 }
