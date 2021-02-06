@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Simple Post</title>
+    <link rel="stylesheet" th:href="@{/index.css}">
 </head>
 <body>
     <form method="post" th:action="@{/posts/add}" th:object="${post}">
@@ -14,9 +15,20 @@
         </label>
         <button type="submit">Отправить</button>
     </form>
-    <div th:each="post : ${posts}">
-        <h1 th:text="*{post.title}"></h1>
-        <p th:text="*{post.text}"></p>
+    <div id="posts-wrapper">
+        <div th:each="post : ${posts}" class="post">
+            <div class="header">
+                <span th:text="*{post.title}"></span>
+                <button><img src="" th:src="@{/delete-post.svg}" alt="delete"></button>
+            </div>
+            <div class="section">
+                <p th:text="*{post.text}"></p>
+                <div class="date-time">
+                    <span class="date" th:text="*{post.creationDateFormatted}"></span>
+                    <span class="time" th:text="*{post.creationTimeFormatted}"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
