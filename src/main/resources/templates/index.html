@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/index.css}">
 </head>
 <body>
-    <form method="post" th:action="@{/posts/add}" th:object="${post}">
+    <form id="create-post" method="post" th:action="@{/posts/add}" th:object="${post}">
         <label for="title"></label>
         <input id="title" type="text" name="title" placeholder="Заголовок" th:field="*{title}">
         <label for="text"></label>
@@ -17,7 +17,11 @@
         <div th:each="post : ${posts}" class="post">
             <div class="header">
                 <span th:text="*{post.title}"></span>
-                <button><img src="" th:src="@{/delete-post.svg}" alt="delete"></button>
+                <form th:action="@{/posts/delete(id=${post.id})}" method="post">
+                    <button type="submit">
+                        <img src="" th:src="@{/delete-post.svg}" alt="delete">
+                    </button>
+                </form>
             </div>
             <div class="section">
                 <p th:text="*{post.text}"></p>

@@ -25,20 +25,20 @@ public class PostController {
         return "index";
     }
 
-    @DeleteMapping("posts/delete")
-    @ResponseBody
-    public String deletePost(@RequestParam Integer id) {
-        if(!postRepository.existsById(id)) return "There is no post with id " + id;
+    @PostMapping("posts/delete")
+    public String deletePost(@RequestParam Integer id, Model model) {
+        if(!postRepository.existsById(id)) throw new IllegalArgumentException("Unknown id:" + id);
         postRepository.deleteById(id);
-        return "Post with id " + id + " was deleted";
+        model.addAttribute("post", new Post());
+        model.addAttribute("posts", getPosts());
+        return "index";
     }
 
-    @DeleteMapping({"posts/clear", "posts/deleteAll"})
-    @ResponseBody
-    public String deleteAll() {
-        if(postRepository.count() == 0) return "Nothing to delete";
+    @PostMapping({"posts/clear", "posts/deleteAll"})
+    public String deleteAll(Model model) {
         postRepository.deleteAll();
-        return "All posts were deleted";
+        model.addAttribute("posts", getPosts());
+        return "index";
     }
 
     @GetMapping({"posts/all", "posts/getAll"})

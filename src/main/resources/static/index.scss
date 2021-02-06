@@ -21,7 +21,7 @@ body {
   padding: 40px;
 }
 
-form {
+#create-post {
   display: flex;
   flex-flow: column;
   margin: 0 auto;
@@ -67,6 +67,33 @@ form {
 
     &:hover {
       background-color: darken($post-blue, 5);
+    }
+  }
+}
+
+#posts-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .post {
+    .header {
+      background-color: $post-blue;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      text-align: center;
+
+      button {
+        display: inline;
+        float: right;
+      }
+    }
+
+    .section {
+      background-color: white;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
     }
   }
 }
