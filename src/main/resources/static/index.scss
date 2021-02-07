@@ -74,26 +74,65 @@ body {
 #posts-wrapper {
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 
   .post {
+    width: 400px;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 0 25px 25px 25px;
+    
+    @media (max-width: 1140px) {
+      max-width: 350px;
+    }
+
     .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 10px 50px;
       background-color: $post-blue;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
       text-align: center;
+      min-height: 50px;
+      font-size: 24px;
+      color: $blue-overlay-text;
+
+      span {
+        line-height: 25px;
+      }
 
       button {
-        display: inline;
-        float: right;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        vertical-align: center;
+        outline: none;
+        cursor: pointer;
+        border: none;
+        background: none;
       }
     }
 
     .section {
+      padding: 15px;
       background-color: white;
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
+
+      .date-time {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $placeholder;
+        text-align: center;
+      }
     }
   }
 }
