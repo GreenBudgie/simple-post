@@ -19,10 +19,13 @@
             <div class="header">
                 <span th:text="*{post.title}"></span>
                 <form th:action="@{/posts/delete(id=${post.id})}" method="post">
-                    <button type="submit">
+                    <button class="delete-post" type="submit">
                         <img src="" th:src="@{/delete-post.svg}" alt="delete">
                     </button>
                 </form>
+                <button class="edit-post">
+                    <img src="" th:src="@{/edit-post.svg}" alt="delete">
+                </button>
             </div>
             <div class="section">
                 <p th:text="*{post.text}"></p>
@@ -33,5 +36,7 @@
             </div>
         </div>
     </div>
+
+    <script src="" th:src="@{/script.js}"></script>
 </body>
 </html>
