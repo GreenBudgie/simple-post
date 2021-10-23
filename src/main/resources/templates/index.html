@@ -28,7 +28,8 @@
                 </button>
             </div>
             <div class="section">
-                <p th:text="*{post.text}"></p>
+                <p class="post-text" th:text="*{post.text}"></p>
+                <textarea class="edit-post-area"></textarea>
                 <div class="date-time">
                     <span class="date" th:text="*{post.creationDateFormatted}"></span>
                     <span class="time" th:text="*{post.creationTimeFormatted}"></span>

@@ -148,6 +148,14 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+#posts-wrapper .post .section .edit-post-area {
+  display: none;
+  font: inherit;
+  width: 100%;
+  resize: none;
+  border: 1px solid black;
+  outline: none;
+}
 #posts-wrapper .post .section .date-time {
   margin-top: 30px;
   display: flex;
