@@ -25,6 +25,17 @@ public class PostController {
         return "index";
     }
 
+    @PostMapping("posts/edit")
+    public String editPost(@RequestParam Integer id, @ModelAttribute Post post, Model model) {
+        Post oldPost = postRepository.findById(id).orElse(null);
+        if(oldPost != null) {
+            oldPost.setText(post.getText());
+            postRepository.save(oldPost);
+        }
+        model.addAttribute("posts", getPosts());
+        return "index";
+    }
+
     @PostMapping("posts/delete")
     public String deletePost(@RequestParam Integer id, Model model) {
         if(!postRepository.existsById(id)) throw new IllegalArgumentException("Unknown id:" + id);

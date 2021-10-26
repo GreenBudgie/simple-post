@@ -29,7 +29,12 @@
             </div>
             <div class="section">
                 <p class="post-text" th:text="*{post.text}"></p>
-                <textarea class="edit-post-area"></textarea>
+                <form id="edit-post-form" method="post" th:action="@{/posts/edit(id=${post.id})}" th:object="${post}">
+                    <label for="edit-post-area"></label>
+                    <textarea id="edit-post-area" name="text" th:field="${post.text}"></textarea>
+                    <label for="edit-post-button"></label>
+                    <button id="edit-post-button" type="submit">Применить</button>
+                </form>
                 <div class="date-time">
                     <span class="date" th:text="*{post.creationDateFormatted}"></span>
                     <span class="time" th:text="*{post.creationTimeFormatted}"></span>

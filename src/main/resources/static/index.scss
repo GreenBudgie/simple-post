@@ -161,13 +161,35 @@ body {
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
 
-      .edit-post-area {
+      #edit-post-form {
         display: none;
+      }
+
+      #edit-post-area {
         font: inherit;
         width: 100%;
         resize: none;
         border: 1px solid black;
         outline: none;
+      }
+
+      #edit-post-button {
+        cursor: pointer;
+        text-align: center;
+        font-size: 18px;
+        width: 40%;
+        height: 35px;
+        margin-right: auto;
+        background-color: $post-blue;
+        color: $blue-overlay-text;
+        transition: background-color 0.3s;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+
+        &:hover {
+          background-color: darken($post-blue, 5);
+        }
       }
 
       .date-time {

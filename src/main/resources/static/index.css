@@ -148,13 +148,32 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
-#posts-wrapper .post .section .edit-post-area {
+#posts-wrapper .post .section #edit-post-form {
   display: none;
+}
+#posts-wrapper .post .section #edit-post-area {
   font: inherit;
   width: 100%;
   resize: none;
   border: 1px solid black;
   outline: none;
+}
+#posts-wrapper .post .section #edit-post-button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  width: 40%;
+  height: 35px;
+  margin-right: auto;
+  background-color: #7BB8DA;
+  color: #404040;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+#posts-wrapper .post .section #edit-post-button:hover {
+  background-color: #67add4;
 }
 #posts-wrapper .post .section .date-time {
   margin-top: 30px;
