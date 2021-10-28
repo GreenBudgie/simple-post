@@ -161,6 +161,10 @@ body {
       border-bottom-left-radius: 20px;
       border-bottom-right-radius: 20px;
 
+      .post-text {
+        overflow-wrap: break-word;
+      }
+
       #edit-post-form {
         display: none;
       }

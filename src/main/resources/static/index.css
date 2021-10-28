@@ -148,6 +148,9 @@ body {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+#posts-wrapper .post .section .post-text {
+  overflow-wrap: break-word;
+}
 #posts-wrapper .post .section #edit-post-form {
   display: none;
 }

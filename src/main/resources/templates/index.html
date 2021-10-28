@@ -9,9 +9,9 @@
 <body>
     <form id="create-post" method="post" th:action="@{/posts/add}" th:object="${post}">
         <label for="title"></label>
-        <input id="title" type="text" name="title" placeholder="Заголовок" th:field="*{title}">
+        <input id="title" maxlength="15" type="text" name="title" placeholder="Заголовок" th:field="*{title}">
         <label for="text"></label>
-        <textarea id="text" name="text" placeholder="Напишите что-нибудь..." th:field="*{text}"></textarea>
+        <textarea id="text" maxlength="300" name="text" placeholder="Напишите что-нибудь..." th:field="*{text}"></textarea>
         <button type="submit">Отправить</button>
     </form>
     <div id="posts-wrapper">
@@ -31,7 +31,7 @@
                 <p class="post-text" th:text="*{post.text}"></p>
                 <form id="edit-post-form" method="post" th:action="@{/posts/edit(id=${post.id})}" th:object="${post}">
                     <label for="edit-post-area"></label>
-                    <textarea id="edit-post-area" name="text" th:field="${post.text}"></textarea>
+                    <textarea maxlength="300" id="edit-post-area" name="text" th:field="${post.text}"></textarea>
                     <label for="edit-post-button"></label>
                     <button id="edit-post-button" type="submit">Применить</button>
                 </form>
